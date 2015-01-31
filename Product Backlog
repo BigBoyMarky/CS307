@@ -1,0 +1,68 @@
+Team 10
+Kaiyi Chen
+Aaron Ho
+Kaijun He
+Kean Jye Tan
+Mark Yang
+
+Project Name: Mippsy  
+
+Problem Statement:
+ 
+People often rely on social media to spread awareness regarding their lost pets or family members. However, the information is unable to be spread efficiently to the larger audience. Mippsy will be a centralized system that every user in the community can share information of lost pets or persons and provide assistance. 
+
+Background Information:
+
+There have been numerous apps centered on reporting missing pets and/or people, such as PiP and NamUs.
+
+One of the problems from apps like these is their limited scope. Many of these apps are limited to only missing pets or missing persons. The public needs a dependable system with a broad scope that covers missing reports from both fields.
+
+Another limitation in the services of these apps are that the user have very restricted options. Many of these apps allow the user to post their missing report but provides little opportunities for other users to respond or contribute to these reports. The system we provide will involve users hoping to contribute in a more connected degree. It will retain the function to allow users to create threads about their missing report and include additional details. However, it will also offer opportunities to contribute to these searches such as posting and commenting on threads, receiving updates and notifications regarding a search, and sharing it on their social media.
+
+
+
+
+
+Requirements:
+
+Functional Requirements:
+
+
+As a user, I would like to be prompted with a nice and easy to use login screen.
+As a user, I would like to be able to use social medias to log into Mippsy.
+As a user, I would also, if desired, like to be able to create a login without having the use a social media.
+As a user, I would like to be prompted, after logging in, a clean and easy to use user interface.
+As a user, I would like to be able to edit my personal profile.
+As a user, I would like to be able to upload and attach pictures to my missing reports.
+As a user, I want to be able to search reports according to the names of the missing person.          
+As a user, I would like to be able to refine the search and narrow down on posts that meet certain criteria(age, gender, location, time of disappearance)
+As a user, I would like to be able to view and comment to reports without having an account.
+As a user, I would like to reach out and communicate with other users via private messaging.
+As a user, I would like to be able to follow threads that have piqued my interest.
+As a user, I would like to receive timely informative notifications on the threads that I have subscribed to.
+As a user, I would like the system to keep track on recently-visited threads.
+As a user, I would like to be able to create threads on multiple different reports.
+As a user, I want to receive e-mail reports on missing cases around my area.
+As a user, I want to have the ability to edit the posts I have made.
+As a user, I would like to have the option to share my posts on various social medias.
+As a user, I want a upvote/downvote system in the comment section.
+As a user, I would like to receive feeds based on geographical regions.
+As a user, I would like to have ready-made templates of reports to ease the process of filing and printing fliers(if time allows).
+As a developer, I want to be able to classify  posts that has been posted for a specific amount of time.
+As a developer, I want a comment upvote/downvote system to hide comments regarded as spam and emphasize top-rated comments.
+As a developer, I want to be able to receive feedback from users regarding their posts after a specific amount of time.
+As a developer, I want to be able to store user information and report information in the database.
+As a developer, I would like to have a system that keeps a record of when a report was generated.
+     
+
+
+Non­-Functional Requirements:
+
+As a developer, I would like to have a system to be scalable to handle large amount of concurrent users simultaneously.
+As a developer, I would like to have a responsive system to provide a minimal response time to users.
+As a developer, I want to have a secure system to protect the confidentiality of user data and information.
+As a developer, I want the option to be able to port the application to the Android platform. (if time allows)
+As a developer, I would like to have a GPS or IP address system to locate the users’ current location.
+As a developer, I would like the option to be able to port the application to the iOS platform. (if time allows)
+As a user, I want to make sure my private information and data are not accessible to the third parties without my consent.
+          
