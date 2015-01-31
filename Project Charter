@@ -1,0 +1,35 @@
+Team 10
+Kaiyi Chen
+Aaron Ho
+Kaijun He
+Kean Jye Tan
+Mark Yang
+Project Charter
+
+Problem Statement:
+
+Missing people and pets is a very common problem worldwide. Up until now, there has never been a centralized system that caters to both missing person reports and missing pet reports.  Current report systems are inefficient in communicating information to the general public.
+
+Objectives:
+
+Allow users to connect and post or report on a centralized and responsive system
+Allow users to easily post missing people or pets with minimal effort
+Generate real time software that satisfies the needs of users and is easy to use
+Provide a way for people to communicate with status updates on the current search efforts
+Provide a database with scalability to handle a large amount of data
+
+Stakeholders:
+
+Software developers creating the project
+Potential user base
+Families
+Pet owners
+The general public
+Project coordinator
+
+Deliverables:
+
+A web based application that will provide an easy to use interface for reporting and viewing missing people or pets
+We will also provide a mobile application with a user-friendly interface for reporting and viewing missing people or pets
+A database to store all the reports that is scalable and secure
+
