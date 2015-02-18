@@ -16,7 +16,7 @@ body {
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-weight:bold;
 	display:none;
-	height:65px;
+	height:67px;
 	/*width:90%;*/
 	width:100%;
 	background-color:#18202A;
@@ -112,7 +112,7 @@ body {
 
 	position:absolute;
 	display:inline-block;
-	right:102px;
+	right:103px;
 	border-left:2px solid;
 	border-color:#27303E;
 }
