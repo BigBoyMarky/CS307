@@ -17,11 +17,8 @@ body {
 	font-weight:bold;
 	display:none;
 	height:67px;
-	/*width:90%;*/
 	width:100%;
 	background-color:#18202A;
-	/*margin:0 0 0 -45%;
-    left:50%;*/
 	position:fixed;
 	
 }
@@ -132,25 +129,26 @@ body {
 	
 }
 
+#horizontalscroll{
 
-
-
-
-
-
-
-#pictures ul {
-  white-space: nowrap;
-  max-height:100px;
-}
-#pictures ul li {
-  float: left:
+    width: auto;
+    height:210px;
+    border: 2px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
+#horizontalscrollpictures {
 
+	white-space: nowrap;
+	min-height:200px;
+	max-height:200px;
 
-.content {
+}
+
+.contentfade {
 	
-	
+	display:none;
 	
 }
