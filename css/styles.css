@@ -156,3 +156,14 @@ body {
 	display:none;
 	
 }
+
+#bottomwrapper {
+
+	min-width:100%;
+	max-width:100%;
+	min-height:100px;
+	max-height:100px;
+	background-color:#27303E;
+	padding-top:15px;
+
+}
