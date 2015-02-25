@@ -89,7 +89,7 @@ body {
 	
 	color:#FFFFFF;
 	display:block;
-	padding:25px;
+	padding:26px;
 	text-decoration:none;
 	
 }
@@ -108,7 +108,7 @@ body {
 
 	position:absolute;
 	display:inline-block;
-	right:103px;
+	right:107px;
 	border-left:2px solid;
 	border-color:#27303E;
 }
@@ -173,3 +173,42 @@ body {
 	background-color:#27303E;
 
 }
+
+
+
+
+
+
+
+
+
+button {
+
+    background:none!important;
+    border:none;
+	font-size:12px;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:bold;
+    color:#FFFFFF;
+    padding:0!important;
+
+}
+
+
+
+#element_to_pop_up { 
+    background-color:#fff;
+    border-radius:15px;
+    color:#000;
+    display:none; 
+    padding:20px;
+    min-width:400px;
+    min-height: 180px;
+}
+.b-close{
+    cursor:pointer;
+    position:absolute;
+    right:10px;
+    top:5px;
+}
+
