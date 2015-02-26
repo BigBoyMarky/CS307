@@ -183,7 +183,7 @@ body {
 
 
 
-button {
+.loginbutton {
 
     background:none!important;
     border:none;
@@ -213,3 +213,51 @@ button {
     top:5px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#createpost {
+
+
+
+
+	width:50%;
+	margin:0 auto;
+	font-size:12px;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight:bold;
+
+
+
+
+}
+
+
+
+
+#submitbutton {
+
+
+	font-size:20px;
+	width:400px;
+	height:100px;
+
+
+
+
+}
