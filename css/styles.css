@@ -237,7 +237,6 @@ body {
 
 
 
-	width:50%;
 	margin:0 auto;
 	font-size:12px;
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
@@ -245,18 +244,15 @@ body {
 
 
 
-
 }
-
-
-
 
 #submitbutton {
 
 
 	font-size:20px;
-	width:400px;
-	height:100px;
+	width:200px;
+	height:30px;
+	border-radius:20px;
 
 
 
