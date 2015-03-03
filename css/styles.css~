@@ -2,10 +2,9 @@ body {
 
 	padding:0;
 	margin:0;
-	overflow-x:auto;
+	overflow-x:scroll;
 	overflow-y:scroll;
 	font-family:Arial;
-	white-space:nowrap;
 	font-size:14px;
 	
 }
@@ -168,8 +167,10 @@ body {
 
 #bottomwrapper {
 
-	width:100%;
-	height:200px;
+	min-width:100%;
+	max-width:100%;
+	min-height:120px;
+	max-height:120px;
 	background-color:#27303E;
 	position:absolute;
 
