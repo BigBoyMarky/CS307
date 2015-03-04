@@ -88,7 +88,7 @@ class DB {
         if (!$this->conn->query($sql)) {
             echo "Error: ". $sql. "<br>". $this->conn->error;
         }
-        return mysql_insert_id();
+        return $this->conn->insert_id;
     }
 
     /*
