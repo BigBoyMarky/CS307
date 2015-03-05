@@ -9,8 +9,6 @@
     require_once "class/DB.class.php";
     require_once "class/User.class.php";
     require_once "class/UserHandler.class.php";
-    require_once "class/Post.class.php";
-    require_once "class/PostsHandler.class.php";
 
     // initialize Userhandler object
     $uh = new UserHandler();
