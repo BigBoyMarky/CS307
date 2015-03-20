@@ -14,6 +14,6 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $uh = new UserHandler();
-    $uh->login($email, md5($password));
-    echo unserialize($_SESSION['user'])->id;
+    if ($uh->login($email, md5($password)))
+        echo unserialize($_SESSION['user'])->id;
 ?>

@@ -72,6 +72,42 @@
 
     });
 
+    $(function () {
+        $('#subtn').click(function()
+        {
+            var email=$("#suemail").val();
+            var password=$("#supw").val();
+            var repassword=$("#surpw").val();
+            var dataString = 'email='+email+'&password='+password+'&repeatpassword='+repassword;
+            if($.trim(email).length > 0 && $.trim(password).length > 0 && $.trim(repassword).length > 0)
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "register.php",
+                    data: dataString,
+                    cache: false,
+                    beforeSend: function(){ $("#subtn").val('Register');},
+                    success: function(data){
+                        if(data)
+                        {
+                            $("body").load("register.php").hide().fadeIn(1500).delay(6000);
+                        }
+                        else
+                        {
+                            $("#subtn").val('Register')
+                            $("#error2").html("<span style='color:#cc0000'>Error:</span> Sign Up Failed! ");
+                        }
+                    }
+                });
+
+            }
+            return false;
+        });
+
+
+    });
+
+
 
 })(jQuery);
 

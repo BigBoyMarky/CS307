@@ -11,12 +11,7 @@ if (isset($_SESSION['logged_in'])) {
     header("Location: index.php");
 }
 
-$password = "";
-$repeatpassword = "";
-$email = "";
-
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+  $email = $_POST['email'];
     $password = $_POST['password'];
     $repeatpassword = $_POST['repeatpassword'];
 
@@ -34,11 +29,8 @@ if (isset($_POST['submit'])) {
         $data['email'] = $email;
         $data['password'] = md5($password);
         $uh->signup($data);
-        header("Location: index.php");
-    } else {
-        header("Location: index.php");
+        echo 1;
     }
 
-}
 
 ?>

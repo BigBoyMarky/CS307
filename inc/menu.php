@@ -51,15 +51,17 @@
 
     <div id="element2_to_pop_up">
         <a class="b-close">x<a/>
-            <form action="register.php" method="POST"><center>
+            <form action="" method="POST"><center>
                     <h1>Sign Up</h1>
-                    <input type = "email" name="email" placeholder="Enter Email Address">
+                    <div id="error2"></div>
                     <br><br>
-                    <input type = "password" name="password" placeholder="Enter Password">
+                    <input type = "email" name="email" id="suemail" placeholder="Enter Email Address">
                     <br><br>
-                    <input type = "password" name="repeatpassword" placeholder="Re-enter Password">
+                    <input type = "password" name="password" id="supw" placeholder="Enter Password">
                     <br><br>
-                    <input type = "submit" name="submit" value="Register">
+                    <input type = "password" name="repeatpassword" id="surpw" placeholder="Re-enter Password">
+                    <br><br>
+                    <input type = "submit" name="submit" value="Register" id="subtn">
                     <br><br>
                 </center></form>
     </div>
