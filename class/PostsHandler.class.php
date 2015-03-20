@@ -18,7 +18,7 @@ class PostsHandler {
     public function fetchPost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "id = '$postid'", true);
+        $result = $db->select("posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
             return new Post($result);
@@ -33,10 +33,10 @@ class PostsHandler {
     public function deletePost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "id = '$postid'", true);
+        $result = $db->select("posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
-            $db->delete("Posts", $postid);
+            $db->delete("posts", $postid);
             return true;
         } else
             return false;
@@ -58,7 +58,7 @@ class PostsHandler {
     public function fetchUserPost($uid) {
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "userID = '$uid'");
+        $result = $db->select("posts", "userID = '$uid'");
         $db->closeCon();
         return $result;
     }

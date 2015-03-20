@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
-    $emailAddress = $_POST['emailAddress'];
     $additionalInfo = $_POST['additionalInfo'];
 
     $user = unserialize($_SESSION['user']);
@@ -112,10 +111,6 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td>Contact Number:</td>
                         <td><input type="text" name="contactNumber"></td>
-                    </tr>
-                    <tr>
-                        <td>Email Address:</td>
-                        <td><input type="email" name="emailAddress"></td>
                     </tr>
                     <tr>
                         <td>Additional Information:</td>
