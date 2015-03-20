@@ -12,7 +12,7 @@ if (!isset($_SESSION['logged_in']))  {
 }
 
 $user = unserialize($_SESSION['user']);
-
+$data = $user->get_all();
 
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
@@ -20,31 +20,19 @@ if (isset($_POST['submit'])) {
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
-    $emailAddress = $_POST['emailAddress'];
 
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
 
-    $data = array();
     $data['fname'] = $fname;
     $data['lname'] = $lname;
     $data['age'] = $age;
     $data['gender'] = $gender;
     $data['contactNumber'] = $contactNumber;
-    $data['emailAddress'] = $emailAddress;
-    $data['id'] = $user->id;
-    $data['password'] = $user->password;
-    //$data['location'] = $location;
 
-    //$ph = new PostsHandler();
     $usrclass = new User($data);
     $usrclass->save();
     header("Location: index.php");
-   // $id = $ph->createPost($data);
-    //echo $id;
-    //if ($id) {
-    //    header("Location: post.php?id=$id");
-    //}
 
 }
 
@@ -65,18 +53,21 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+
 <div id="wrapper">
+    
     <div id="header">
         <?php
         $page = $_SERVER['PHP_SELF'];
         include "inc/menu.php";
         ?>
     </div>
+    
     <div id="content">
         <div id="newpost">
         <br><br>
         <center>
-            <h2>Edit Proile Information</h2>
+            <h2>Edit Profile Information</h2>
             <form action="edit_profile.php" method="POST">
                 <table>
                     <tr>
@@ -111,10 +102,6 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td>Contact Number:</td>
                         <td><input type="text" name="contactNumber"></td>
-                    </tr>
-                    <tr>
-                        <td>Email Address:</td>
-                        <td><input type="email" name="emailAddress"></td>
                     </tr>
            
                 </table>

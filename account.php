@@ -12,10 +12,6 @@ if(!isset($_SESSION['user'])) {
 }
 
 $user = unserialize($_SESSION['user']);
-$usrcls = new User();
-
-//$usrcls->update(false);
-
 
 ?>
 
@@ -65,7 +61,7 @@ $usrcls = new User();
                             <td><?php echo $user->gender; ?></td></tr>
                         <tr>
                             <td>Email Address:</td>
-                            <td><?php echo $user->emailAddress; ?></td></tr>
+                            <td><?php echo $user->email; ?></td></tr>
                         <tr>
                             <td>Phone Number:</td>
                             <td><?php echo $user->contactNumber; ?></td></tr>
@@ -75,7 +71,7 @@ $usrcls = new User();
             </table>
             <br>
             <br>
-            <a href='edit_profile.php?id='>Edit User Proile</a>
+            <a href='edit_profile.php?id='>Edit User Profile</a>
 
         </center>
 

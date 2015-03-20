@@ -9,7 +9,6 @@ require_once "class/DB.class.php";
 
 class User {
 
-    // user credentials. More to be added (location, gender, ....)
     public $id;
     public $email;
     public $hashedpw;
@@ -17,8 +16,10 @@ class User {
     public $lname;
     public $age;
     public $gender;
-    public $emailAddress;
     public $contactNumber;
+    public $city;
+    public $state;
+    public $country;
 
     // constructor for the User class. Takes in an array. More variables to be added.
     function __construct($data) {
@@ -29,9 +30,10 @@ class User {
         $this->lname = isset($data['lname']) ? $data['lname'] : "";
         $this->age = isset($data['age']) ? $data['age'] : "";
         $this->gender = isset($data['gender']) ? $data['gender'] : "";
-        $this->emailAddress = isset($data['emailAddress']) ? $data['emailAddress'] : "";
         $this->contactNumber = isset($data['contactNumber']) ? $data['contactNumber'] : "";
-
+        $this->city = isset($data['city']) ? $data['city'] : "";
+        $this->state = isset($data['state']) ? $data['state'] : "";
+        $this->country = isset($data['country']) ? $data['country'] : "";
     }
 
     /*
@@ -46,13 +48,33 @@ class User {
                 "join_date" => "'".date("Y-m-d:h:i:s", time())."'");
             $this->id = $db->insert($data, "user");
         } else {
-            $data = array("password" => "'$this->hashedpw'", "fname" => "'$this->fname'", "lname" => "'$this->lname'", "age" => "'$this->age'", "gender" => "'$this->gender'", "contactNumber" => "'$this->contactNumber'");
-
-
+            $data = array("password" => "'$this->hashedpw'", "fname" => "'$this->fname'",
+                "lname" => "'$this->lname'", "age" => "'$this->age'", "gender" => "'$this->gender'",
+                "contactNumber" => "'$this->contactNumber'", "city" => "'$this->city'",
+                "state" => "'$this->state'", "country" => "'$this->country'");
             $db->update($data, "user", ' id = '.$this->id);
         }
         $db->closeCon();
         return true;
+    }
+
+    /*
+     *  @param null @return array containing all fields
+     *  Return all the field variables in an array.
+     */
+    public function get_all() {
+        $arr['id'] = $this->id;
+        $arr['email'] = $this->email;
+        $arr['password'] = $this->hashedpw;
+        $arr['fname'] = $this->fname;
+        $arr['lname'] = $this->lname;
+        $arr['age'] = $this->age;
+        $arr['gender'] = $this->gender;
+        $arr['contactNumber'] = $this->contactNumber;
+        $arr['city'] = $this->city;
+        $arr['state'] = $this->state;
+        $arr['country'] = $this->country;
+        return $arr;
     }
 }
 
