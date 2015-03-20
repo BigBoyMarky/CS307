@@ -52,6 +52,15 @@ class PostsHandler {
     }
 
     /*
+     *  @param data array   @return post id or false if failed.
+     *  Edit the post stored in the database.
+     */
+    public function editPost($data) {
+        $post = new Post($data);
+        return $post->create(false);
+    }
+
+    /*
      *  @param user ID      @return all posts created by the user in an array
      *  Find all posts created by user with uid and return them in an array.
      */
