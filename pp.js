@@ -32,6 +32,7 @@
             e.preventDefault();
 
             // Triggering bPopup when click event is fired
+            $('#error').html("");
             $('#element_to_pop_up').bPopup();
 
         });

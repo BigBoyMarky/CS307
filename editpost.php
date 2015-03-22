@@ -34,17 +34,10 @@ if (isset($_POST['submit'])) {
     $data['emailAddress'] = $emailAddress;
     $data['additionalInfo'] = $additionalInfo;
     $data['userID'] = $user->id;
-
-
+    $data['id'] = $_GET['id'];
     $ph = new PostsHandler();
-
     $id = $ph->editPost($data);
-
-
-    echo $id;
-    if ($id) {
-        header("Location: post.php?id=$id");
-    }
+    header("Location: post.php?id=".$data['id']);
 }
 ?>
 
@@ -80,7 +73,7 @@ if (isset($_POST['submit'])) {
         <br><br>
         <center>
             <h2>Edit Post</h2>
-            <form action="editpost.php" method="POST">
+            <form action="" method="POST">
                 <table>
                     <tr>
                         <td>First Name:</td>

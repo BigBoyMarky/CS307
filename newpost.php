@@ -4,9 +4,7 @@
  * Date: 3/3/15
  * Time: 4:50 PM
  */
-
 require_once "inc/global.inc.php";
-
 if (!isset($_SESSION['logged_in']))  {
     header("Location: index.php");
 }
@@ -17,7 +15,6 @@ $gender= "";
 $contactNumber = "";
 $emailAddress = "";
 $additionalInfo = "";
-
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -25,10 +22,8 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
     $additionalInfo = $_POST['additionalInfo'];
-
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
-
     $data = array();
     $data['fname'] = $fname;
     $data['lname'] = $lname;
@@ -38,16 +33,13 @@ if (isset($_POST['submit'])) {
     $data['emailAddress'] = $emailAddress;
     $data['additionalInfo'] = $additionalInfo;
     $data['userID'] = $user->id;
-
     $ph = new PostsHandler();
     $id = $ph->createPost($data);
     echo $id;
     if ($id) {
         header("Location: post.php?id=$id");
     }
-
 }
-
 ?>
 
 <!doctype html>

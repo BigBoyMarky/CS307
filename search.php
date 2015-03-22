@@ -1,38 +1,13 @@
 <?php
-
-require_once "inc/global.inc.php";
-if (!isset($_SESSION['logged_in']))  {
-    header("Location: index.php");
-}
-
-$query = "";
-$method = "";
-
-
-if (isset($_POST['submit'])) {
-    $query = $_POST['query'];
-
-    $method = $_POST['method'];
-
-    //$user = unserialize($_SESSION['user']);
-    // error checking to be added!
-    $data = array();
-    $data['query'] = $query;
-    $data['method'] = $method;
-
-    //$data['userID'] = $user->id;
-
-
-    //$ph = new PostsHandler();
-
-    //$id = $ph->editPost($data);
-
-
-    //echo $id;
-    //if ($id) {
-    //    header("Location: post.php?id=$id");
-    //}
-}
+/*
+*
+* Author: aaron
+Date: 3/20/15
+*/ 
+ require_once "inc/global.inc.php";
+$method= $_POST['method'];
+$text= $_POST['input'];
+$ph = new PostsHandler();
 ?>
 
 
@@ -59,28 +34,46 @@ if (isset($_POST['submit'])) {
         ?>
     </div>
     <div id="content">
+
         <div id="searchpost">
-        <br><br>
-        <center>
+        
+       
             <h2>Search Post</h2>
-            <form action="searchpost.php" method="POST">
-                <table>
-                    <tr>
-                        <td>Search:</td>
-                        <td><input type="text" name="query"></td>
-                        <td>
+            <form action="<?php echo $PHP_SELF;?>" method="POST">
+              
+                        
+                       Search: <input type="text" name="input" value="<?php echo $input;?>"> 
+                       
                             <select name="method">
                                 <option value="N">Search By Name</option>
                                 <option value="D">Search By Date</option>
                                 <option value="L">Search By Location</option>
                             </select>
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" value="Submit" name="submit">
+                    <input type="submit" name = "submit">  
+                  
+                
+                
             </form>
-        </center>
-        <br><br><br>
+    
+        
+        </div>
+        <div id="list">
+            <?php  
+if (isset($_POST['submit'])){  
+   echo "string";
+}
+ else{ // list all posts when not submit
+  $posts = $ph->fetchallPosts();
+   //$len = sizeof($posts);
+ //for ($i = 0; $i < $len; $i++) {
+//<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>
+ //}
+
+ 
+}
+
+            ?>
+            
         </div>
     </div>
     <div id="footer">

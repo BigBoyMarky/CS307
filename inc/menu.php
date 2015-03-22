@@ -35,7 +35,7 @@
 
     <div id="element_to_pop_up">
         <a class="b-close">x<a/>
-            <form action="" method="POST"><center>
+            <form action="" method="POST" onSubmit="return false;"><center>
                     <h1>Login to Mippsy</h1>
                     <div id="error"></div>
                     <br><br>
@@ -55,9 +55,9 @@
                     <h1>Sign Up</h1>
                     <div id="error2"></div>
                     <br><br>
-                    <input type = "email" name="email" id="suemail" placeholder="Enter Email Address">
+                    <input type = "email" name="email" id="suemail" placeholder="Enter Email Address" >
                     <br><br>
-                    <input type = "password" name="password" id="supw" placeholder="Enter Password">
+                    <input type = "password" name="password" id="supw" placeholder="Enter Password" >
                     <br><br>
                     <input type = "password" name="repeatpassword" id="surpw" placeholder="Re-enter Password">
                     <br><br>

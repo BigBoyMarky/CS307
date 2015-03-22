@@ -4,38 +4,29 @@
  * Date: 3/5/2015
  * Time: 3:21 PM
  */
-
 require_once "inc/global.inc.php";
-
 if (!isset($_SESSION['logged_in']))  {
     header("Location: index.php");
 }
-
 $user = unserialize($_SESSION['user']);
 $data = $user->get_all();
-
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
-
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
-
     $data['fname'] = $fname;
     $data['lname'] = $lname;
     $data['age'] = $age;
     $data['gender'] = $gender;
     $data['contactNumber'] = $contactNumber;
-
     $usrclass = new User($data);
     $usrclass->save();
     header("Location: index.php");
-
 }
-
 ?>
 
 <!doctype html>

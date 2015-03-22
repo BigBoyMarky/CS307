@@ -12,6 +12,10 @@ if(!isset($_SESSION['user'])) {
 }
 
 $user = unserialize($_SESSION['user']);
+$usrcls = new User();
+
+//$usrcls->update(false);
+
 
 ?>
 
@@ -71,7 +75,7 @@ $user = unserialize($_SESSION['user']);
             </table>
             <br>
             <br>
-            <a href='edit_profile.php?id='>Edit User Profile</a>
+            <a href='edit_profile.php?id='>Edit User Proile</a>
 
         </center>
 

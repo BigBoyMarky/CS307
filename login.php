@@ -6,11 +6,9 @@
  * Time: 9:30 PM
  */
     require_once "inc/global.inc.php";
-
     if (isset($_SESSION['logged_in'])) {
         header("Location: index.php");
     }
-
     $email = $_POST['email'];
     $password = $_POST['password'];
     $uh = new UserHandler();
