@@ -27,6 +27,7 @@
                 <li><a href="<?php echo $page; ?>" id="myb">SignUp</a></li>
                 <li><a href="<?php echo $page;  ?>" id="my-button">Login</a></li>
             <?php else: ?>
+                <li><a href="account.php">My Profile</a></li>
                 <li><a href="logout.php">Log out</a></li>
             <?php endif; ?>
         </div>
@@ -34,13 +35,15 @@
 
     <div id="element_to_pop_up">
         <a class="b-close">x<a/>
-            <form action="login.php" method="POST"><center>
+            <form action="" method="POST" onSubmit="return false;"><center>
                     <h1>Login to Mippsy</h1>
-                    <input type = "email" name="email" placeholder="Enter Email Address">
+                    <div id="error"></div>
                     <br><br>
-                    <input type = "password" name="password" placeholder="Enter Password">
+                    <input type = "email" name="email" id='email' placeholder="Enter Email Address">
                     <br><br>
-                    <input type = "submit" name="submit" value="Login">
+                    <input type = "password" name="password" id='password' placeholder="Enter Password">
+                    <br><br>
+                    <input type="submit" name="submit" value="Login" id=login>
                     <br><br>
                 </center></form>
     </div>
@@ -48,15 +51,17 @@
 
     <div id="element2_to_pop_up">
         <a class="b-close">x<a/>
-            <form action="register.php" method="POST"><center>
+            <form action="" method="POST"><center>
                     <h1>Sign Up</h1>
-                    <input type = "email" name="email" placeholder="Enter Email Address">
+                    <div id="error2"></div>
                     <br><br>
-                    <input type = "password" name="password" placeholder="Enter Password">
+                    <input type = "email" name="email" id="suemail" placeholder="Enter Email Address" >
                     <br><br>
-                    <input type = "password" name="repeatpassword" placeholder="Re-enter Password">
+                    <input type = "password" name="password" id="supw" placeholder="Enter Password" >
                     <br><br>
-                    <input type = "submit" name="submit" value="Register">
+                    <input type = "password" name="repeatpassword" id="surpw" placeholder="Re-enter Password">
+                    <br><br>
+                    <input type = "submit" name="submit" value="Register" id="subtn">
                     <br><br>
                 </center></form>
     </div>

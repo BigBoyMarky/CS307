@@ -4,9 +4,7 @@
  * Date: 3/3/15
  * Time: 4:50 PM
  */
-
 require_once "inc/global.inc.php";
-
 if (!isset($_SESSION['logged_in']))  {
     header("Location: index.php");
 }
@@ -17,19 +15,15 @@ $gender= "";
 $contactNumber = "";
 $emailAddress = "";
 $additionalInfo = "";
-
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
-    $emailAddress = $_POST['emailAddress'];
     $additionalInfo = $_POST['additionalInfo'];
-
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
-
     $data = array();
     $data['fname'] = $fname;
     $data['lname'] = $lname;
@@ -39,16 +33,13 @@ if (isset($_POST['submit'])) {
     $data['emailAddress'] = $emailAddress;
     $data['additionalInfo'] = $additionalInfo;
     $data['userID'] = $user->id;
-
     $ph = new PostsHandler();
     $id = $ph->createPost($data);
     echo $id;
     if ($id) {
         header("Location: post.php?id=$id");
     }
-
 }
-
 ?>
 
 <!doctype html>
@@ -112,10 +103,6 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td>Contact Number:</td>
                         <td><input type="text" name="contactNumber"></td>
-                    </tr>
-                    <tr>
-                        <td>Email Address:</td>
-                        <td><input type="email" name="emailAddress"></td>
                     </tr>
                     <tr>
                         <td>Additional Information:</td>

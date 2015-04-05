@@ -4,18 +4,14 @@
  * Date: 3/3/15
  * Time: 4:51 PM
  */
-
 require_once "inc/global.inc.php";
-
 if(!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
-
 $ph = new PostsHandler();
 $user = unserialize($_SESSION['user']);
 $uid = $user->id;
 $posts = $ph->fetchUserPost($uid);
-
 ?>
 
 <!doctype html>
@@ -54,6 +50,7 @@ $posts = $ph->fetchUserPost($uid);
                         echo "<td>".$posts[$i]['age']."<td>";
                         echo "<td>".$posts[$i]['gender']."<td>";
                         echo "<td>".$posts[$i]['date']."<td>";
+                        echo "<td>"."<a href='editpost.php?id=".$posts[$i]['id']."'>"."Edit Post"."</td>";
                         echo "</tr>";
                     }
                 ?>

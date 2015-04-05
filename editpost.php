@@ -1,33 +1,50 @@
 <?php
 /**
- * Author: aaron and kaijun
- * Date: 3/5/2015
- * Time: 3:21 PM
+ * Author: jay
+ * Date: 3/3/15
+ * Time: 4:50 PM
  */
 require_once "inc/global.inc.php";
 if (!isset($_SESSION['logged_in']))  {
     header("Location: index.php");
 }
-$user = unserialize($_SESSION['user']);
-$data = $user->get_all();
+$fname = "";
+$lname = "";
+$age = "";
+$gender= "";
+$contactNumber = "";
+$emailAddress = "";
+$additionalInfo = "";
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
+    $emailAddress = $_POST['emailAddress'];
+    $additionalInfo = $_POST['additionalInfo'];
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
+    $data = array();
     $data['fname'] = $fname;
     $data['lname'] = $lname;
     $data['age'] = $age;
     $data['gender'] = $gender;
     $data['contactNumber'] = $contactNumber;
-    $usrclass = new User($data);
-    $usrclass->save();
-    header("Location: index.php");
+    $data['emailAddress'] = $emailAddress;
+    $data['additionalInfo'] = $additionalInfo;
+    $data['userID'] = $user->id;
+    $data['id'] = $_GET['id'];
+    $ph = new PostsHandler();
+    $id = $ph->editPost($data);
+    header("Location: post.php?id=".$data['id']);
 }
 ?>
+
+
+
+
+
 
 <!doctype html>
 
@@ -36,7 +53,7 @@ if (isset($_POST['submit'])) {
 
     <meta charset="utf-8">
     <title>
-        Edit profile | Mippsy
+        Edit Post | Mippsy
     </title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -44,22 +61,19 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-
 <div id="wrapper">
-    
     <div id="header">
         <?php
         $page = $_SERVER['PHP_SELF'];
         include "inc/menu.php";
         ?>
     </div>
-    
     <div id="content">
-        <div id="newpost">
+        <div id="editpost">
         <br><br>
         <center>
-            <h2>Edit Profile Information</h2>
-            <form action="edit_profile.php" method="POST">
+            <h2>Edit Post</h2>
+            <form action="" method="POST">
                 <table>
                     <tr>
                         <td>First Name:</td>
@@ -94,7 +108,14 @@ if (isset($_POST['submit'])) {
                         <td>Contact Number:</td>
                         <td><input type="text" name="contactNumber"></td>
                     </tr>
-           
+                    <tr>
+                        <td>Email Address:</td>
+                        <td><input type="email" name="emailAddress"></td>
+                    </tr>
+                    <tr>
+                        <td>Additional Information:</td>
+                        <td><textarea name="additionalInfo" rows="8" cols="50"></textarea></td>
+                    </tr>
                 </table>
                 <input type="submit" value="Submit" name="submit">
             </form>

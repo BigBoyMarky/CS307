@@ -65,7 +65,7 @@ $usrcls = new User();
                             <td><?php echo $user->gender; ?></td></tr>
                         <tr>
                             <td>Email Address:</td>
-                            <td><?php echo $user->emailAddress; ?></td></tr>
+                            <td><?php echo $user->email; ?></td></tr>
                         <tr>
                             <td>Phone Number:</td>
                             <td><?php echo $user->contactNumber; ?></td></tr>

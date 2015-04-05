@@ -26,7 +26,6 @@ class Post{
     public $lname;
     public $age;
     public $gender;
-    //public $location;
     public $contactNumber;
     public $emailAddress;
     public $additionalInfo;
@@ -37,7 +36,6 @@ class Post{
         $this->lname = isset($data['lname']) ? $data['lname'] : "";
         $this->age = isset($data['age']) ? $data['age'] : "";
         $this->gender = isset($data['gender']) ? $data['gender'] : "";
-        //$this->location = isset($data['location']) ? $data['location'] : "";
         $this->contactNumber = isset($data['contactNumber']) ? $data['contactNumber'] : "";
         $this->emailAddress = isset($data['emailAddress']) ? $data['emailAddress'] : "";
         $this->additionalInfo = isset($data['additionalInfo']) ? $data['additionalInfo'] : "";
@@ -57,15 +55,14 @@ class Post{
         $data['lname'] = "'$this->lname'";
         $data['age'] = "'$this->age'";
         $data['gender'] = "'$this->gender'";
-        //$data['location'] = "'$this->location'";
         $data['contactNumber'] = "'$this->contactNumber'";
         $data['emailAddress'] = "'$this->emailAddress'";
         $data['additionalinfo'] = "'$this->additionalInfo'";
         if ($newPost) {
             $data['date'] = "'".date("Y-m-d:h:i:s", time()). "'";
-            $this->postid = $db->insert($data, "Posts");
+            $this->postid = $db->insert($data, "posts");
         } else {
-            $db->update($data, "Posts", ' id = '.$this->postid);
+            $db->update($data, "posts", ' id = '.$this->postid);
         }
         $db->closeCon();
         return $this->postid;

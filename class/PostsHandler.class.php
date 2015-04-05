@@ -18,7 +18,7 @@ class PostsHandler {
     public function fetchPost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "id = '$postid'", true);
+        $result = $db->select("posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
             return new Post($result);
@@ -33,10 +33,10 @@ class PostsHandler {
     public function deletePost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "id = '$postid'", true);
+        $result = $db->select("posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
-            $db->delete("Posts", $postid);
+            $db->delete("posts", $postid);
             return true;
         } else
             return false;
@@ -52,13 +52,22 @@ class PostsHandler {
     }
 
     /*
+     *  @param data array   @return post id or false if failed.
+     *  Edit the post stored in the database.
+     */
+    public function editPost($data) {
+        $post = new Post($data);
+        return $post->create(false);
+    }
+
+    /*
      *  @param user ID      @return all posts created by the user in an array
      *  Find all posts created by user with uid and return them in an array.
      */
     public function fetchUserPost($uid) {
         $db = new DB();
         $db->connect();
-        $result = $db->select("Posts", "userID = '$uid'");
+        $result = $db->select("posts", "userID = '$uid'");
         $db->closeCon();
         return $result;
     }
