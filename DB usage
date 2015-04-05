@@ -1,0 +1,23 @@
+To ensure the database integrate well with the code.
+Use:
+database name = mippsy
+table name = user, Posts
+
+user table contains
+    id (int, auto increment, primary key)
+    email (varchar, email)
+    password (varchar)
+    join_date (datetime)
+
+
+Posts table contains
+    id (int, auto increment, primary key)
+    fname (varchar)
+    lname (varchar)
+    age (int)
+    gender (varchar)
+    date (datetime)   // time which post is created
+    contactNumber (varchar)
+    additionalInfo (varchar)
+    emailAddress (varchar, email)
+    userID (int)

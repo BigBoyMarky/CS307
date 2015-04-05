@@ -2,10 +2,9 @@ body {
 
 	padding:0;
 	margin:0;
-	overflow-x:auto;
+	overflow-x:scroll;
 	overflow-y:scroll;
 	font-family:Arial;
-	white-space:nowrap;
 	font-size:14px;
 	
 }
@@ -168,7 +167,14 @@ body {
 
 #bottomwrapper {
 
+<<<<<<< HEAD
 	width:100%;
+=======
+	min-width:100%;
+	max-width:100%;
+	min-height:120px;
+	max-height:120px;
+>>>>>>> 06aa24a11ea46446bc7b6bf28b7139a16a056b62
 	background-color:#27303E;
 	position:relative;
 	bottom:0;

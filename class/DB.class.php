@@ -50,6 +50,7 @@ class DB {
 
         $sql = "SELECT * FROM $table WHERE $where";
         $result = $this->conn->query($sql);
+        if (!$result) return false;
         if (mysqli_num_rows($result) == 1 && $singleRow) {
             return $this->processRow($result, true);
         } else
