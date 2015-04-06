@@ -18,7 +18,7 @@ class PostsHandler {
     public function fetchPost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("posts", "id = '$postid'", true);
+        $result = $db->select("Posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
             return new Post($result);
@@ -33,10 +33,10 @@ class PostsHandler {
     public function deletePost($postid){
         $db = new DB();
         $db->connect();
-        $result = $db->select("posts", "id = '$postid'", true);
+        $result = $db->select("Posts", "id = '$postid'", true);
         $db->closeCon();
         if ($result) {
-            $db->delete("posts", $postid);
+            $db->delete("Posts", $postid);
             return true;
         } else
             return false;
@@ -50,8 +50,7 @@ class PostsHandler {
         $post = new Post($data);
         return $post->create(true);
     }
-
-    /*
+     /*
      *  @param data array   @return post id or false if failed.
      *  Edit the post stored in the database.
      */
@@ -67,8 +66,18 @@ class PostsHandler {
     public function fetchUserPost($uid) {
         $db = new DB();
         $db->connect();
-        $result = $db->select("posts", "userID = '$uid'");
+        $result = $db->select("Posts", "userID = '$uid'");
         $db->closeCon();
+        return $result;
+    }
+
+    /*
+    Mark's fetch all posts method
+    */
+    public function fetchAllPosts() {
+        $db = new DB();
+        $db->connect();
+        $result = $db->getAll();
         return $result;
     }
 

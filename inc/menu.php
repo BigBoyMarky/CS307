@@ -12,6 +12,7 @@
     <ul>
         <div id="left">
             <li><a href="search.php">Search Posts</a></li>
+            <li><a href="allposts.php">All Posts</a></li>
             <?php if(isset($_SESSION['logged_in'])): ?>
                 <li><a href="newpost.php">New Post</a></li>
                 <li><a href="mypost.php">My<br> Posts</a></li>

@@ -9,8 +9,8 @@ class DB {
 
     // credentials to connect to the database
     protected $db_name = "mippsy";
-    protected $db_user = "root";
-    protected $db_pass = "";
+    protected $db_user = "mippsy";
+    protected $db_pass = "Purdue307";
     protected $db_host = "localhost";
     protected $conn;
 
@@ -111,6 +111,20 @@ class DB {
     public function closeCon() {
         $this->conn->close();
         return true;
+    }
+
+    /*
+    Mark's get all
+    */
+    public function getAll() {
+
+        $sql = "SELECT * FROM Posts";
+        $result = $this->conn->query($sql);
+        if (!$result) return false;
+        if (mysqli_num_rows($result) == 1 && $singleRow) {
+            return $this->processRow($result, true);
+        } else
+            return $this->processRow($result);
     }
 
 }
