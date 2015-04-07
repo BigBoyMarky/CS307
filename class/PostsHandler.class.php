@@ -81,4 +81,11 @@ class PostsHandler {
         return $result;
     }
 
+    public function fetchSearchedPosts($data) {
+        $db = new DB();
+        $db->connect();
+        $result = $db->getSearched($data);
+        return $result;
+    }
+
 }

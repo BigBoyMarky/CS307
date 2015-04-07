@@ -1,15 +1,12 @@
 <?php
-/*
-*
-* Author: aaron
-Date: 3/20/15
-*/ 
- require_once "inc/global.inc.php";
-$method= $_POST['method'];
-$text= $_POST['input'];
+require_once "inc/global.inc.php";
 $ph = new PostsHandler();
+/*if(isset($_POST['submit'])) {
+    $data = 
+}*/
+$user = unserialize($_SESSION['user']);
+//$posts = $ph->fetchSearchedPosts($data);
 ?>
-
 
 <!doctype html>
 
@@ -18,7 +15,7 @@ $ph = new PostsHandler();
 
     <meta charset="utf-8">
     <title>
-        Search | Mippsy
+        Searched Posts | Mippsy
     </title>
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -34,47 +31,32 @@ $ph = new PostsHandler();
         ?>
     </div>
     <div id="content">
-
-        <div id="searchpost">
-        
-       
-            <h2>Search Post</h2>
+        <br>
+        <center>
+            <h1>Search Posts</h1>
+            <table id="Posts">
             <form action="<?php echo $PHP_SELF;?>" method="POST">
-              
-                        
-                       Search: <input type="text" name="input" value="<?php echo $input;?>"> 
-                       
-                            <select name="method">
-                                <option value="N">Search By Name</option>
-                                <option value="D">Search By Date</option>
-                                <option value="L">Search By Location</option>
-                            </select>
-                    <input type="submit" name = "submit">  
-                  
-                
-                
+                Search: <input type="text" name="data"/>
+                <input type = "submit" name = "submit"/>
             </form>
-    
-        
-        </div>
-        <div id="list">
-            <?php  
-if (isset($_POST['submit'])){  
-   echo "string";
-}
- else{ // list all posts when not submit
-  $posts = $ph->fetchallPosts();
-   //$len = sizeof($posts);
- //for ($i = 0; $i < $len; $i++) {
-//<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>
- //}
-
- 
-}
-
-            ?>
-            
-        </div>
+                <?php // printing out the search results
+                    if (isset($_POST['submit'])) {
+                        $posts = $ph->fetchSearchedPosts($_POST['data']);
+                        $len = sizeof($posts);
+                        for ($i = 0; $i < $len; $i++) {
+                            echo "<tr>";
+                            echo "<td>".$i."</td>";
+                            echo "<td>"."<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>" ."</td>";
+                            echo "<td>".$posts[$i]['age']."<td>";
+                            echo "<td>".$posts[$i]['gender']."<td>";
+                            echo "<td>".$posts[$i]['date']."<td>";
+                            echo "<td>"."<a href='editpost.php?id=".$posts[$i]['id']."'>"."Edit Post"."</td>";
+                            echo "</tr>";
+                        }
+                    }
+                ?>
+            </table>
+        </center>
     </div>
     <div id="footer">
         <?php include "inc/footer.php"; ?>
