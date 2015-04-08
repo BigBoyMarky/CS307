@@ -29,6 +29,7 @@
                 <li><a href="<?php echo $page;  ?>" id="my-button">Login</a></li>
             <?php else: ?>
                 <li><a href="account.php">My Profile</a></li>
+                <li><a href="mymessages.php">My Messages</a></li>
                 <li><a href="logout.php">Log out</a></li>
             <?php endif; ?>
         </div>

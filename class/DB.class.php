@@ -141,6 +141,8 @@ class DB {
             return $this->processRow($result);
     }
 
+    //public function sendMessage
+
 }
 
 ?>
