@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
     $data['messageID'] = $messageID;
     $mh = new MessageHandler();
     $id = $mh->createMessage($data);
+    header("Location: mymessages.php");
 }
 ?>
 
