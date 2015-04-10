@@ -43,7 +43,7 @@ $posts = $ph->fetchUserPost($uid);
             <table id="Posts">
                 <?php
                     $len = sizeof($posts);
-                    for ($i = 0; $i < $len; $i++) {
+                    for ($i = $len - 1; $i >= 0; $i--) {
                         echo "<tr>";
                         echo "<td>".$i."</td>";
                         echo "<td>"."<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>" ."</td>";
