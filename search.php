@@ -45,7 +45,6 @@ $user = unserialize($_SESSION['user']);
                         $len = sizeof($posts);
                         for ($i = 0; $i < $len; $i++) {
                             echo "<tr>";
-                            echo "<td>".$i."</td>";
                             echo "<td>"."<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>" ."</td>";
                             echo "<td>".$posts[$i]['age']."<td>";
                             echo "<td>".$posts[$i]['gender']."<td>";

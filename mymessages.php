@@ -41,7 +41,7 @@ $receiverName = unserialize($_SESSION['user'])->fname;
             <table id="Messages">
                 <?php
                     $len = sizeof($messages);
-                    for ($i = 0; $i < $len; $i++) {
+                    for ($i = $len - 1; $i >= 0; $i--) {
                         echo "<tr>";
                         //echo "<td>".$i."</td>";
                         //echo "<td>".$messages[$i]['senderID']."<td>";
@@ -51,6 +51,7 @@ $receiverName = unserialize($_SESSION['user'])->fname;
                         //echo "<td>".$messages[$i]['receiverID']."<td>";
                         echo "<td>Subject: ".$messages[$i]['messageSubject']."<td>";
                         echo "<td>".$messages[$i]['messageText']."<td>";
+                        echo "<td>"."<a href='sendmessage.php?id=".$messages[$i]['senderID']."'>"."Reply"."</td>";
                         echo "</tr>";
                     }
                 ?>

@@ -20,12 +20,12 @@ require_once "User.class.php";
 
 class Message{
 
-    public $messageID;
+
     public $senderID;
     public $receiverID;
     public $messageText;
     public $messageSubject;
-
+    public $messageID;
 
     function __construct($data) {
         $this->senderID = isset($data['senderID']) ? $data['senderID'] : "";
@@ -51,7 +51,7 @@ class Message{
         $data['messageSubject'] = "'$this->messageSubject'";
         $data['messageID'] = "'$this->messageID'";
 
-        $data['date'] = "'".date("Y-m-d:h:i:s", time()). "'";
+        //$data['date'] = "'".date("Y-m-d:h:i:s", time()). "'";
          $this->messageID = $db->insert($data, "Messages");
 
         $db->closeCon();

@@ -41,7 +41,6 @@ $posts = $ph->fetchAllPosts();
                         echo "<td>".$posts[$i]['age']."<td>";
                         echo "<td>".$posts[$i]['gender']."<td>";
                         echo "<td>".$posts[$i]['date']."<td>";
-                        echo "<td>"."<a href='editpost.php?id=".$posts[$i]['id']."'>"."Edit Post"."</td>";
                         echo "</tr>";
                     }
                 ?>

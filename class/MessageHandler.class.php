@@ -8,6 +8,7 @@
 require_once "Post.class.php";
 require_once "DB.class.php";
 require_once "User.class.php";
+require_once "Message.class.php";
 
 class MessageHandler {
 
@@ -28,7 +29,7 @@ class MessageHandler {
 
     public function createMessage($data) {
         $message = new Message($data);
-        return $message->create();
+        return $message->create(true);
     }
   
 
@@ -57,5 +58,11 @@ class MessageHandler {
         return $result;
     }
 
+    public function sendMessage($mid) {
+        $db = new DB();
+        $db->connect();
+        $result = $db->select("Messages", "");
+        return $result;
+    }
 
 }
