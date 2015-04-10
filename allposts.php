@@ -36,7 +36,7 @@ $posts = $ph->fetchAllPosts();
                     $len = sizeof($posts);
                     for ($i = $len - 1; $i >= 0; $i--) {
                         echo "<tr>";
-                        echo "<td>".$i."</td>";
+                        //echo "<td>".$i."</td>";
                         echo "<td>"."<a href='post.php?id=".$posts[$i]['id']."'>".$posts[$i]['fname']." ".$posts[$i]['lname']."</a>" ."</td>";
                         echo "<td>".$posts[$i]['age']."<td>";
                         echo "<td>".$posts[$i]['gender']."<td>";
