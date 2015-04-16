@@ -4,6 +4,7 @@ html, body {
     margin:0;
     padding:0;
     height:100%;
+    color:black;
 }
 
 #wrapper {
@@ -11,14 +12,36 @@ html, body {
     position:relative;
 }
 #header {
+
+    font-size:12px;
+    font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
     left:0;
     right:0;
     width:100%;
     top: 0;
     height:40px;
     position:fixed;
-    background-color: beige;
     border-bottom: 2px solid;
+    border-width: 80%;
+}
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: grey;
 }
 
 #content {
@@ -33,7 +56,6 @@ html, body {
     bottom:0;
     left:0;
     text-align: center;
-    background-color: beige;
 }
 
 #footer2 {
@@ -57,7 +79,6 @@ html, body {
     height: 40px;
     width:auto;
     display:table;
-    background-color: beige;
     position: fixed;
     float:left;
 
@@ -89,13 +110,15 @@ html, body {
     width: 80px;
     height:40px;
     padding-right:10px;
-    border-left: 1px solid;
-    border-right:2px solid;
-    border-color:#27303E;
     font-size: 13px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    -o-transition: all 1.5s ease-out;
+    -ms-transition: all 1.5s ease-out;
+    transition: all 1.5s ease-out;
 }
 
 #navbar ul li a:hover {
@@ -107,7 +130,7 @@ html, body {
     -ms-transition:all 1.5s ease;
     -o-transition:all 1.5s ease;
     transition:all 1.5s ease;
-    background-color:blanchedalmond;
+    background-color:grey;
 
 }
 
