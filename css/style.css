@@ -23,6 +23,7 @@ html, body {
     background-color:white;
     border-bottom: 2px solid;
     border-color:#F0F0F0;
+    z-index:100000000;
 }
 
 #header img {
@@ -219,8 +220,9 @@ a:hover {
 #post_top {
     margin-left: auto;
     margin-right: auto;
+    display:inline-block;
 }
-#post_top_left {
+/*#post_top_left {
     float:left;
     margin-left: 200px;
 }
@@ -230,8 +232,104 @@ a:hover {
 #post_top_right {
     float:right;
     margin-top: 50px;
-    margin-right:200px;
+    margin-left:200px;
+}*/
+#post_bottom {
+    margin: auto;
 }
+
+
+
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+
+.tab-links li {
+    margin:0px 5px;
+    float:left;
+    list-style:none;
+}
+
+.tab-links a {
+    padding:9px 15px;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+    background:#7FB5DA;
+    font-size:16px;
+    font-weight:600;
+    color:#4c4c4c;
+    transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+    background:#a7cce5;
+    text-decoration:none;
+}
+li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+    padding:15px;
+    border-radius:3px;
+    box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+    background:#fff;
+}
+
+.tab {
+    display:none;
+}
+
+.tab.active {
+    display:block;
+}
+
+#two_buttons {
+    width:100%;
+}
+#person_button {
+    display:inline-block;
+    float:left;
+    padding-left:300px;
+}
+#pet_button {
+    display:inline-block;
+    float:right;
+    padding-right:300px;
+}
+#person_b_button {
+    width:500px;
+    height:500px;
+    border: 3px solid;
+    border-radius:20px;
+}
+#pet_b_button {
+    width:500px;
+    height:500px;
+    border: 3px solid;
+    border-radius:20px;
+}
+
+
+
+
+
+
+
+
 
 
 

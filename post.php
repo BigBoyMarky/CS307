@@ -37,6 +37,19 @@ else {
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="pp.js"></script>
+    <script>jQuery(document).ready(function() {
+    jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+ 
+        e.preventDefault();
+    });
+});</script>
 </head>
 
 <body>
@@ -61,9 +74,63 @@ else {
                     
 <div id = "post_top">
 
-<div id = "post_top_left">
-                    
-                    
+
+<!-- TEMPORARY SLIDESHOW DISPLAY -->
+ <div id="slideshow-wrap">
+        <input type="radio" id="button-1" name="controls" checked="checked"/>
+        <label for="button-1"></label>
+        <input type="radio" id="button-2" name="controls"/>
+        <label for="button-2"></label>
+        <input type="radio" id="button-3" name="controls"/>
+        <label for="button-3"></label>
+        <input type="radio" id="button-4" name="controls"/>
+        <label for="button-4"></label>
+        <input type="radio" id="button-5" name="controls"/>
+        <label for="button-5"></label>
+        <label for="button-1" class="arrows" id="arrow-1">></label>
+        <label for="button-2" class="arrows" id="arrow-2">></label>
+        <label for="button-3" class="arrows" id="arrow-3">></label>
+        <label for="button-4" class="arrows" id="arrow-4">></label>
+        <label for="button-5" class="arrows" id="arrow-5">></label>
+        <div id="slideshow-inner">
+            <ul>
+                <li id="slide1">
+                    <img src="images/dogs/1.jpg" />
+                    <div class="description">
+                        <h2>KKSDLAFJKSADLJFKFSADFLALSJKL KALSDFJKSDLFJSDFJSLKFJSLKFJAKSDL ASDFKLAJIAOWEFMNNARKWELFN AFJSADLKFJAMNI AWEFKLJLKSADJFAISDOFMNAKSLDF</h2>
+                    </div>
+                </li>
+                <li id="slide2">
+                    <img src="images/dogs/2.jpg" />
+                    <div class="description">
+                       <h2>KKSDLAFJKSADLJFKFSADFLALSJKL KALSDFJKSDLFJSDFJSLKFJSLKFJAKSDL ASDFKLAJIAOWEFMNNARKWELFN AFJSADLKFJAMNI AWEFKLJLKSADJFAISDOFMNAKSLDF</h2>
+                    </div>
+                </li>
+                <li id="slide3">
+                    <img src="images/dogs/3.jpg" />
+                    <div class="description">
+                        <h2>KKSDLAFJKSADLJFKFSADFLALSJKL KALSDFJKSDLFJSDFJSLKFJSLKFJAKSDL ASDFKLAJIAOWEFMNNARKWELFN AFJSADLKFJAMNI AWEFKLJLKSADJFAISDOFMNAKSLDF</h2>
+                    </div>
+                </li>
+                <li id="slide4">
+                    <img src="images/dogs/4.jpg" />
+                    <div class="description">
+                        <h2>KKSDLAFJKSADLJFKFSADFLALSJKL KALSDFJKSDLFJSDFJSLKFJSLKFJAKSDL ASDFKLAJIAOWEFMNNARKWELFN AFJSADLKFJAMNI AWEFKLJLKSADJFAISDOFMNAKSLDF</h2>
+                    </div>
+                </li>
+                <li id="slide5">
+                    <img src="images/dogs/5.jpg" />
+                    <div class="description">
+                        <h2>KKSDLAFJKSADLJFKFSADFLALSJKL KALSDFJKSDLFJSDFJSLKFJSLKFJAKSDL ASDFKLAJIAOWEFMNNARKWELFN AFJSADLKFJAMNI AWEFKLJLKSADJFAISDOFMNAKSLDF</h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div> <!-- END POST_TOP DIV -->
+<!-- HERE IS WHERE YOU PULL THE PICTURES FOR THE POST FROM THE FILE SYSTEM
                      <h3>Pictures</h3>
 
                         <?php 
@@ -102,9 +169,24 @@ else {
                    }
                 }
                         ?>
-    </div>
-    <div id = "post_top_right">
-                    <table>
+    </div>-->
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<center>
+    <div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">Report Details</a></li>
+        <li><a href="#tab2">Comments</a></li>
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+                                <table>
                         <tr>
                             <td>First Name:</td>
                             <td><?php echo $post->fname; ?></td>
@@ -136,36 +218,19 @@ else {
                             <td><?php echo $post->emailAddress; ?></td>
                         </tr>
                     </table>
-                    </div>
-                    </div>
+                    
+
                 <?php endif; ?>
                 <br>
-                <center>
                 <form action="<?php echo $PHP_SELF;?>" method="POST">
                 <input type = "hidden" name = "sendmessageID" value = <?php echo $post->userID;?>>
                 <input type = "submit" name = "sendmessage" value = "Send a message"/ >
             </form>
-            </center>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-             <h4>COMMENTS</h4>
-                    
-                    </tr>
-                   
-                    <?php 
+        </div>
+ 
+        <div id="tab2" class="tab">
+                            <?php 
                         if (isset($_SESSION['user'])) { ?>
                         <table>
                    
@@ -217,6 +282,26 @@ else {
 
 
                     </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--             <h4>COMMENTS</h4>
+                    
+                    </tr>-->
+                   
+
                   
 
 

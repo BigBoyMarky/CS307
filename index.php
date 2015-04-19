@@ -26,7 +26,7 @@
                         include "inc/menu.php";
                     ?>
                 </div>
-                <div id="content">
+                </div>
                     <!--<img id="homepic" src="images/banner.jpg">-->
 
 
