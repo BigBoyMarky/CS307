@@ -11,10 +11,10 @@
 <div id="navbar">
     <ul>
         <div id="left">
-            <li><a href="search.php">Search Posts</a></li>
-            <li><a href="allposts.php">All Posts</a></li>
+            <li><a href="search.php">Search<br> Posts</a></li>
+            <li><a href="allposts.php">All<br> Posts</a></li>
             <?php if(isset($_SESSION['logged_in'])): ?>
-                <li><a href="newpost.php">New Post</a></li>
+                <li><a href="newpost.php">New<br> Post</a></li>
                 <li><a href="mypost.php">My<br> Posts</a></li>
             <?php else: ?>
                 <div id="hidden">
@@ -25,12 +25,13 @@
         </div>
         <div id="right">
             <?php if(!isset($_SESSION['logged_in'])): ?>
-                <li><a href="<?php echo $page; ?>" id="myb">SignUp</a></li>
-                <li><a href="<?php echo $page;  ?>" id="my-button">Login</a></li>
+                <li><a href="<?php echo $page; ?>" id="myb"><img src = "images/signup.png" /></a></li>
+                <li><a href="<?php echo $page;  ?>" id="my-button"><img src = "images/login.png" /></a></li>
             <?php else: ?>
-                <li><a href="account.php">My Profile</a></li>
-                <li><a href="mymessages.php">My Messages</a></li>
-                <li><a href="logout.php">Log out</a></li>
+                <!--<li><a href="account.php">My Profile</a></li>-->
+                <li><a href="account.php"><img src = "images/myaccount.png" /></a></li>
+                <li><a href="mymessages.php"><img src = "images/messages.png" /></a></li>
+                <li><a href="logout.php"><img src = "images/logout.png" /></a></li>
             <?php endif; ?>
         </div>
     </ul>
