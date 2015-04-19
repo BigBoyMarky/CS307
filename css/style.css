@@ -322,7 +322,24 @@ li.active a:hover {
     border: 3px solid;
     border-radius:20px;
 }
-
+#inbox_div {
+    border: 3px solid grey;
+    border-radius:2px;
+    height:200px;
+    width:80%;
+    overflow-y:scroll;
+}
+#Inbox {
+}
+#outbox_div {
+    border: 3px solid grey;
+    border-radius:2px;
+    height:200px;
+    width:80%;
+    overflow-y:scroll;
+}
+#Outbox {
+}
 
 
 

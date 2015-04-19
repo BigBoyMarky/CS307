@@ -8,6 +8,9 @@ $user = unserialize($_SESSION['user']);
 $uid = $user->id;
 $messages = $mh->fetchUserReceivedMessages($uid);
 
+$uid = $user->id;
+$sentmessages = $mh->fetchUserSentMessages($uid);
+
 $uh = new UserHandler();
 $receiverName = unserialize($_SESSION['user'])->fname;
 ?>
@@ -38,7 +41,11 @@ $receiverName = unserialize($_SESSION['user'])->fname;
         <br>
         <center>
             <h1>My Messages</h1>
-            <table id="Messages">
+            <br />
+            <h2>Inbox</h2>
+            <div id = "inbox_div">
+            <!--<table id="Inbox">-->
+                <table style = "width: 100%">
                 <?php
                     $len = sizeof($messages);
                     for ($i = $len - 1; $i >= 0; $i--) {
@@ -46,16 +53,44 @@ $receiverName = unserialize($_SESSION['user'])->fname;
                         //echo "<td>".$i."</td>";
                         //echo "<td>".$messages[$i]['senderID']."<td>";
                         //echo "<td>From: ".$senderName."</td>";
-                        echo "<td>From: ".$uh->getUser($messages[$i]['senderID'])->fname."<td>";
-                        echo "<td>To: ".$receiverName."</td>";
+                        echo "<td style =\"word-wrap: break-word\">From: <br />".$uh->getUser($messages[$i]['senderID'])->fname."<td>";
+                        //echo "<td>To: ".$receiverName."</td>";
                         //echo "<td>".$messages[$i]['receiverID']."<td>";
-                        echo "<td>Subject: ".$messages[$i]['messageSubject']."<td>";
-                        echo "<td>".$messages[$i]['messageText']."<td>";
+                        echo "<td style =\"word-wrap: break-word\">Subject: <br />".$messages[$i]['messageSubject']."<td>";
+                        echo "<td style =\"word-wrap: break-word\">Message: <br />".$messages[$i]['messageText']."<td>";
                         echo "<td>"."<a href='sendmessage.php?id=".$messages[$i]['senderID']."'>"."Reply"."</td>";
                         echo "</tr>";
                     }
                 ?>
             </table>
+            </div>
+            <br />
+            <br />
+            <h2>Outbox</h2>
+            <div id = "outbox_div">
+            <!--<table id = "Outbox">-->
+
+                <table style = "width: 100%">
+
+            <?php
+                    $len = sizeof($sentmessages);
+                    for ($i = $len - 1; $i >= 0; $i--) {
+                        echo "<tr>";
+                        //echo "<td>".$i."</td>";
+                        //echo "<td>".$messages[$i]['senderID']."<td>";
+                        //echo "<td>From: ".$senderName."</td>";
+                        //echo "<td>From: ".$uh->getUser($sentmessages[$i]['senderID'])->fname."<td>";
+                        echo "<td style =\"word-wrap: break-word\">To: <br />".$uh->getUser($sentmessages[$i]['receiverID'])->fname."</td>";
+                        //echo "<td>".$messages[$i]['receiverID']."<td>";
+                        echo "<td style =\"word-wrap: break-word\">Subject: <br />".$sentmessages[$i]['messageSubject']."<td>";
+                        echo "<td style =\"word-wrap: break-word\">Message: <br />".$sentmessages[$i]['messageText']."</td>";
+                        //echo "<td>"."<a href='sendmessage.php?id=".$sentmessages[$i]['senderID']."'>"."Reply"."</td>";
+                        echo "</tr>";
+                    }
+                ?>
+            </table>
+            </div>
+
         </center>
     </div>
     <div id="footer">

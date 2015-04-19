@@ -50,6 +50,14 @@ class MessageHandler {
         return $result;
     }
 
+    /*public function fetchUserSentMessages($mid) {
+        $db = new DB();
+        $db->connect();
+        $result = $db->select("Messages", "senderID = '$mid'");
+        $db->closeCon();
+        return $result;
+    }*/
+
     public function fetchMessageID($mid) {
         $db = new DB();
         $db->connect();
