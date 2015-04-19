@@ -216,6 +216,22 @@ a:hover {
     margin-right:200px;
 }
 
+#post_top {
+    margin-left: auto;
+    margin-right: auto;
+}
+#post_top_left {
+    float:left;
+    margin-left: 200px;
+}
+#post_top_left>img {
+    width:300px;
+}
+#post_top_right {
+    float:right;
+    margin-top: 50px;
+    margin-right:200px;
+}
 
 
 

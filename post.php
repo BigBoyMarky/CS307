@@ -57,12 +57,15 @@ else {
                     &#9786;
                 <?php else: ?>
                     <h2>Missing Report</h2>
+                    </center>
+                    
+<div id = "post_top">
+
+<div id = "post_top_left">
                     
                     
-                    
-                    
-                     <h3>pictures</h3>
-                    <table>
+                     <h3>Pictures</h3>
+
                         <?php 
                 $id = $_GET['id'];
 
@@ -99,8 +102,8 @@ else {
                    }
                 }
                         ?>
-    
-                    </table>
+    </div>
+    <div id = "post_top_right">
                     <table>
                         <tr>
                             <td>First Name:</td>
@@ -133,12 +136,16 @@ else {
                             <td><?php echo $post->emailAddress; ?></td>
                         </tr>
                     </table>
+                    </div>
+                    </div>
                 <?php endif; ?>
                 <br>
+                <center>
                 <form action="<?php echo $PHP_SELF;?>" method="POST">
                 <input type = "hidden" name = "sendmessageID" value = <?php echo $post->userID;?>>
                 <input type = "submit" name = "sendmessage" value = "Send a message"/ >
             </form>
+            </center>
 
 
 
@@ -222,8 +229,6 @@ else {
 
 
 
-                  
-            </center>
             <br><br><br>
         </div>
     </div>
