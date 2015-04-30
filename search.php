@@ -1,6 +1,7 @@
 <?php
 require_once "inc/global.inc.php";
 $ph = new PostsHandler();
+$pp = new PetPostsHandler();
 /*if(isset($_POST['submit'])) {
     $data = 
 }*/
@@ -52,6 +53,19 @@ $user = unserialize($_SESSION['user']);
                             echo "</tr>";
                         }
                     }
+                    if (isset($_POST['submit'])) {
+                        $posts = $pp->fetchSearchedPosts($_POST['data']);
+                        $len = sizeof($posts);
+                        for ($i = 0; $i < $len; $i++) {
+                            echo "<tr>";
+                            echo "<td>"."<a href='petpost.php?id=".$posts[$i]['id']."'>".$posts[$i]['petName']." </a>" ."</td>";
+                            echo "<td>".$posts[$i]['age']."<td>";
+                            echo "<td>".$posts[$i]['species']."<td>";
+                            echo "<td>".$posts[$i]['date']."<td>";
+                            echo "</tr>";
+                        }
+                    }
+                    
                 ?>
             </table>
         </center>

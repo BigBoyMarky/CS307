@@ -39,10 +39,14 @@ Person or Pet?
 	<br/>
 	<div id = "two_buttons">
 		<div id = "person_button">
-			<input type = "image" id = "person_b_button" src = "images/placement/placementmale.jpg"/>
+			<a href="newpost.php">
+				<input type = "image" id = "person_b_button" action="newpost.php" src = "images/placement/placementmale.jpg"/>
+			</a>
 		</div>
 		<div id = "pet_button">
-			<input type = "image" id = "pet_b_button" src = "images/placement/placementdog.jpg"/>
+			<a href="newPetPost.php">
+				<input type = "image" id = "pet_b_button" src = "images/placement/placementdog.jpg"/>
+			</a>
 		</div>
 	</div>
 <div id="footer">

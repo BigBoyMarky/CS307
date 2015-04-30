@@ -4,11 +4,8 @@
  * Date: 2/25/15
  * Time: 8:25 PM
  */
-
 require_once "class/DB.class.php";
-
 class User {
-
     public $id;
     public $email;
     public $hashedpw;
@@ -20,6 +17,8 @@ class User {
     public $city;
     public $state;
     public $country;
+
+    public $verified;
 
     // constructor for the User class. Takes in an array. More variables to be added.
     function __construct($data) {
@@ -34,8 +33,8 @@ class User {
         $this->city = isset($data['city']) ? $data['city'] : "";
         $this->state = isset($data['state']) ? $data['state'] : "";
         $this->country = isset($data['country']) ? $data['country'] : "";
+        $this->verified = isset($data['verified']) ? $data['verified'] : "";
     }
-
     /*
      *  @param boolean @return true if success.
      *  Save or update user information to database.
@@ -51,13 +50,12 @@ class User {
             $data = array("password" => "'$this->hashedpw'", "fname" => "'$this->fname'",
                 "lname" => "'$this->lname'", "age" => "'$this->age'", "gender" => "'$this->gender'",
                 "contactNumber" => "'$this->contactNumber'", "city" => "'$this->city'",
-                "state" => "'$this->state'", "country" => "'$this->country'");
+                "state" => "'$this->state'", "country" => "'$this->country'", "verified" => "'$this->verified'");
             $db->update($data, "user", ' id = '.$this->id);
         }
         $db->closeCon();
         return true;
     }
-
     /*
      *  @param null @return array containing all fields
      *  Return all the field variables in an array.
@@ -74,8 +72,8 @@ class User {
         $arr['city'] = $this->city;
         $arr['state'] = $this->state;
         $arr['country'] = $this->country;
+        $arr['verified'] = $this->verified;
         return $arr;
     }
 }
-
 ?>

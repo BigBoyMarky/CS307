@@ -126,6 +126,19 @@ class DB {
         } else
             return $this->processRow($result);
     }
+    
+ 
+    
+     public function getpetsAll() {
+
+        $sql = "SELECT * FROM petposts";
+        $result = $this->conn->query($sql);
+        if (!$result) return false;
+        if (mysqli_num_rows($result) == 1 && $singleRow) {
+            return $this->processRow($result, true);
+        } else
+            return $this->processRow($result);
+    }
 
     /*
     Mark's get searched
@@ -133,6 +146,17 @@ class DB {
     public function getSearched($data) {
 
         $sql = "SELECT * FROM Posts WHERE fname LIKE '%$data%' OR lname LIKE '%$data%' OR additionalInfo LIKE '%$data%'";
+        $result = $this->conn->query($sql);
+        if (!$result) return false;
+        if (mysqli_num_rows($result) == 1 && $singleRow) {
+            return $this->processRow($result, true);
+        } else
+            return $this->processRow($result);
+    }
+    
+    public function getpetSearched($data) {
+
+        $sql = "SELECT * FROM petposts WHERE petName LIKE '%$data%' OR additionalInfo LIKE '%$data%'";
         $result = $this->conn->query($sql);
         if (!$result) return false;
         if (mysqli_num_rows($result) == 1 && $singleRow) {

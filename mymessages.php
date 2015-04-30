@@ -53,11 +53,11 @@ $receiverName = unserialize($_SESSION['user'])->fname;
                         //echo "<td>".$i."</td>";
                         //echo "<td>".$messages[$i]['senderID']."<td>";
                         //echo "<td>From: ".$senderName."</td>";
-                        echo "<td style =\"word-wrap: break-word\">From: <br />".$uh->getUser($messages[$i]['senderID'])->fname."<td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>From:</b> <br />".$uh->getUser($messages[$i]['senderID'])->fname."<td>";
                         //echo "<td>To: ".$receiverName."</td>";
                         //echo "<td>".$messages[$i]['receiverID']."<td>";
-                        echo "<td style =\"word-wrap: break-word\">Subject: <br />".$messages[$i]['messageSubject']."<td>";
-                        echo "<td style =\"word-wrap: break-word\">Message: <br />".$messages[$i]['messageText']."<td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>Subject:</b> <br />".$messages[$i]['messageSubject']."<td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>Message:</b> <br />".$messages[$i]['messageText']."<td>";
                         echo "<td>"."<a href='sendmessage.php?id=".$messages[$i]['senderID']."'>"."Reply"."</td>";
                         echo "</tr>";
                     }
@@ -80,10 +80,10 @@ $receiverName = unserialize($_SESSION['user'])->fname;
                         //echo "<td>".$messages[$i]['senderID']."<td>";
                         //echo "<td>From: ".$senderName."</td>";
                         //echo "<td>From: ".$uh->getUser($sentmessages[$i]['senderID'])->fname."<td>";
-                        echo "<td style =\"word-wrap: break-word\">To: <br />".$uh->getUser($sentmessages[$i]['receiverID'])->fname."</td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>To:</b> <br />".$uh->getUser($sentmessages[$i]['receiverID'])->fname."</td>";
                         //echo "<td>".$messages[$i]['receiverID']."<td>";
-                        echo "<td style =\"word-wrap: break-word\">Subject: <br />".$sentmessages[$i]['messageSubject']."<td>";
-                        echo "<td style =\"word-wrap: break-word\">Message: <br />".$sentmessages[$i]['messageText']."</td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>Subject:</b> <br />".$sentmessages[$i]['messageSubject']."<td>";
+                        echo "<td style =\"word-wrap: break-word\"><b>Message:</b> <br />".$sentmessages[$i]['messageText']."</td>";
                         //echo "<td>"."<a href='sendmessage.php?id=".$sentmessages[$i]['senderID']."'>"."Reply"."</td>";
                         echo "</tr>";
                     }

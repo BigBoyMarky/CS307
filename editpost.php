@@ -15,6 +15,8 @@ $gender= "";
 $contactNumber = "";
 $emailAddress = "";
 $additionalInfo = "";
+$ph = new PostsHandler();
+$post = $ph->fetchPost($_GET['id']);
 if (isset($_POST['submit'])) {
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -22,6 +24,7 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $contactNumber = $_POST['contactNumber'];
     $emailAddress = $_POST['emailAddress'];
+    $location = $_POST['location'];
     $additionalInfo = $_POST['additionalInfo'];
     $user = unserialize($_SESSION['user']);
     // error checking to be added!
@@ -34,8 +37,8 @@ if (isset($_POST['submit'])) {
     $data['emailAddress'] = $emailAddress;
     $data['additionalInfo'] = $additionalInfo;
     $data['userID'] = $user->id;
+    $data['location'] = $location;
     $data['id'] = $_GET['id'];
-    $ph = new PostsHandler();
     $id = $ph->editPost($data);
     header("Location: post.php?id=".$data['id']);
 }
@@ -77,16 +80,19 @@ if (isset($_POST['submit'])) {
                 <table>
                     <tr>
                         <td>First Name:</td>
-                        <td><input type="text" name="fname"></td>
+                        <td><input type="text" name="fname" value="<?php echo $post->fname;?>"></td>
                     </tr>
                     <tr>
                         <td>Last Name:</td>
-                        <td><input type="text" name="lname"></td>
+                        <td><input type="text" name="lname" value="<?php echo $post->lname;?>"></td>
                     </tr>
                     <tr>
                         <td>Age:</td>
                         <td>
                             <select name="age">
+                            	<option selected="selected">
+                            		<?php echo $post->age; ?>
+                            	</option>
                                 <?php
                                     for($value = 1; $value < 120; $value++) {
                                         echo '<option value = "'.$value.'">'.$value.'</option>';
@@ -99,22 +105,86 @@ if (isset($_POST['submit'])) {
                         <td>Gender:</td>
                         <td>
                             <select name="gender">
+                            	<option selected="selected">
+                            		<?php echo $post->gender; ?>
+                            	</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
+                        <td>Location:</td>
+                        <td>
+                            <select name="location" required>
+                            	<option selected="selected">
+                            		<?php echo isset($_POST['location']) ? $_POST['location'] : 'ALABAMA'; ?>
+                            	</option>
+                                <option value="ALABAMA">Alabama</option>
+                                <option value="ALASKA">Alaska</option>
+                                <option value="ARIZONA">Arizona</option>
+                                <option value="ARKANSAS">Arkansas</option>
+                                <option value="CALIFORNIA">California</option>
+                                <option value="COLORADO">Colorado</option>
+                                <option value="CONNECTICUT">Connecticut</option>
+                                <option value="DELAWARE">Delaware</option>
+                                <option value="COLUMBIA">District Of Columbia</option>
+                                <option value="FLORIDA">Florida</option>
+                                <option value="GEORGIA">Georgia</option>
+                                <option value="HAWAII">Hawaii</option>
+                                <option value="IDAHO">Idaho</option>
+                                <option value="ILLINOIS">Illinois</option>
+                                <option value="INDIANA">Indiana</option>
+                                <option value="IOWA">Iowa</option>
+                                <option value="KANSAS">Kansas</option>
+                                <option value="KENTUCKY">Kentucky</option>
+                                <option value="LOUISIANA">Louisiana</option>
+                                <option value="MAINE">Maine</option>
+                                <option value="MARYLAND">Maryland</option>
+                                <option value="MASSACHUSETTS">Massachusetts</option>
+                                <option value="MICHIGAN">Michigan</option>
+                                <option value="MINNESOTA">Minnesota</option>
+                                <option value="MISSISSIPPI">Mississippi</option>
+                                <option value="MISSOURI">Missouri</option>
+                                <option value="MONTANA">Montana</option>
+                                <option value="NEBRASKA">Nebraska</option>
+                                <option value="NEVADA">Nevada</option>
+                                <option value="NEW HAMPSHIRE">New Hampshire</option>
+                                <option value="NEW JERSEY">New Jersey</option>
+                                <option value="NEW MEXICO">New Mexico</option>
+                                <option value="NEW YORK">New York</option>
+                                <option value="NORTH CAROLINA">North Carolina</option>
+                                <option value="NORTH DAKOTA">North Dakota</option>
+                                <option value="OHIO">Ohio</option>
+                                <option value="OKLAHOMA">Oklahoma</option>
+                                <option value="OREGON">Oregon</option>
+                                <option value="PENNYSYLVANIA">Pennsylvania</option>
+                                <option value="RHODE ISLAND">Rhode Island</option>
+                                <option value="SOUTH CAROLINA">South Carolina</option>
+                                <option value="SOUTH DAKOTA">South Dakota</option>
+                                <option value="TENNESSEE">Tennessee</option>
+                                <option value="TEXAS">Texas</option>
+                                <option value="UTAH">Utah</option>
+                                <option value="VERMONT">Vermont</option>
+                                <option value="VIRGINIA">Virginia</option>
+                                <option value="WASHINGTON">Washington</option>
+                                <option value="WEST VIRGINIA">West Virginia</option>
+                                <option value="WISCONSIN">Wisconsin</option>
+                                <option value="WYOMING">Wyoming</option>
+                            </select>               
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Contact Number:</td>
-                        <td><input type="text" name="contactNumber"></td>
+                        <td><input type="text" name="contactNumber" value="<?php echo $post->contactNumber;?>"></td>
                     </tr>
                     <tr>
                         <td>Email Address:</td>
-                        <td><input type="email" name="emailAddress"></td>
+                        <td><input type="email" name="emailAddress" value="<?php echo $post->emailAddress; ?>"></td>
                     </tr>
                     <tr>
                         <td>Additional Information:</td>
-                        <td><textarea name="additionalInfo" rows="8" cols="50"></textarea></td>
+                        <td><textarea name="additionalInfo" rows="8" cols="50"><?php echo $post->additionalInfo;?></textarea></td>
                     </tr>
                 </table>
                 <input type="submit" value="Submit" name="submit">

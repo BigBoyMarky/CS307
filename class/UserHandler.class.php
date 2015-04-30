@@ -88,6 +88,36 @@ class UserHandler {
         $user = new User($data);
         $user->save(true);
         $this->login($user->email, $user->hashedpw);
+        
+        $userlogin = $user->email;
+        $userid = $user->id;
+        $subject = "[Mippsy] Welcome :^)";
+        $headers = <<<MESSAGE
+From: Mippsy
+Content-Type: text/plain;
+MESSAGE;
+
+        $msg = <<<EMAIL
+You have a new account ready at Mippsy!
+On behalf of the team, we welcome you on board.
+
+To get started, please activate your account usin the following link:
+
+Your login: $userlogin
+
+Activate your account: http://mippsy.com/verifyuser.php?id=$userid
+
+If you have any questions, please contact chen1114@purdue.edu
+
+--
+Thanks!
+
+Team 10
+www.mippsy.com
+EMAIL;
+
+        mail($user->email,$subject,$msg,$headers);
+
         $db->closeCon();
         if (isset($_SESSION['logged_in']))
             return true;

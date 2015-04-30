@@ -12,20 +12,20 @@
     <ul>
         <div id="left">
             <li><a href="search.php">Search<br> Posts</a></li>
-            <li><a href="allposts.php">All<br> Posts</a></li>
+            <li><a href="pp2.php">All<br> Posts</a></li>
             <?php if(isset($_SESSION['logged_in'])): ?>
-                <li><a href="newpost.php">New<br> Post</a></li>
+                <li><a href="pp.php">New<br> Post</a></li>
                 <li><a href="mypost.php">My<br> Posts</a></li>
             <?php else: ?>
                 <div id="hidden">
-                    <li><a href="newpost.php">New Post</a></li>
+                    <li><a href="pp.php">New Post</a></li>
                     <li><a href="mypost.php">My<br> Posts</a></li>
                 </div>
             <?php endif; ?>
         </div>
         <div id="right">
             <?php if(!isset($_SESSION['logged_in'])): ?>
-                <li><a href="<?php echo $page; ?>" id="myb"><img src = "images/signup.png" /></a></li>
+                <li><a href="signup.php"><img src = "images/signup.png" /></a></li>
                 <li><a href="<?php echo $page;  ?>" id="my-button"><img src = "images/login.png" /></a></li>
             <?php else: ?>
                 <!--<li><a href="account.php">My Profile</a></li>-->

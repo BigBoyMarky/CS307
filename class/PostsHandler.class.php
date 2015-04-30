@@ -80,6 +80,16 @@ class PostsHandler {
         $result = $db->getAll();
         return $result;
     }
+    
+    public function fetchlocation($location) {
+        $db = new DB();
+        $db->connect();
+        echo $location;
+        $result = $db->select("Posts", "location = '$location'", false);
+        echo $result[0];
+        return $result;
+    }
+    
 
     public function fetchSearchedPosts($data) {
         $db = new DB();

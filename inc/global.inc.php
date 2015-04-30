@@ -15,6 +15,8 @@
     require_once "class/comment.class.php";
     require_once "class/MessageHandler.class.php";
     require_once "class/Message.class.php";
+    require_once "class/PetPost.class.php";
+    require_once "class/PetPostsHandler.class.php";
     // initialize Userhandler object
     $uh = new UserHandler();
     session_start();

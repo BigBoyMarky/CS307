@@ -71,19 +71,19 @@ $usrcls = new User();
       
     $target_dir .= "profile.png";
       echo "<tr> <td>" ;
-       echo '<img id="myImg" src ='. $target_dir.'> ';
+       echo '<img id="myImg" src ='. $target_dir.' height="300" width="300"> ';
       echo "</tr>  </td>";
               } 
           else if (file_exists($target_dir."profile.jpg")){
            $target_dir .= "profile.jpg";
       echo "<tr> <td>" ;
-       echo '<img id="myImg" src ='. $target_dir.'> ';
+       echo '<img id="myImg" src ='. $target_dir.' height="300" width="300"> ';
       echo "</tr>  </td>";
           } 
           else if (file_exists($target_dir."profile.jpeg")){
        $target_dir .= "profile.jpeg";
    echo "<tr> <td>" ;
-       echo '<img id="myImg" src ='. $target_dir.'> ';
+       echo '<img id="myImg" src ='. $target_dir.' height="300" width="300"> ';
       echo "</tr>  </td>";
           } else{
             echo '<tr> <td><img id="myImg" src = "images/dpp.png">  </td> </tr>';
@@ -97,7 +97,7 @@ $usrcls = new User();
                 <div id = "account_top_right">
 
                             <?php echo "<h1>". $user->fname ." ". $user->lname ."</h1>";?>
-              <a href='edit_profile.php?id='>Edit User Proile</a>
+              <a href='edit_profile.php?id='>Edit User Profile</a>
                         
         
                         </div>
@@ -117,7 +117,7 @@ $usrcls = new User();
 <h3>Gender:</h3><?php echo $user->gender; ?>
 <h3>Email Address:</h3><?php echo $user->email; ?>
 <h3>Phone Number:</h3><?php echo $user->contactNumber; ?>
-
+<h3>Location:</h3> <td><?php echo $user->state; ?></td>
 <!--
                          <table>                
                         <tr>
@@ -131,7 +131,7 @@ $usrcls = new User();
                             <td>Email Address:</td>
                             <td><?php echo $user->email; ?></td></tr>
                         <tr>
-                            <td>Phone Number:</td>
+                            <td>Phone Numer:</td>
                             <td><?php echo $user->contactNumber; ?></td></tr>
                     </table>-->
 

@@ -3,6 +3,9 @@ require_once "inc/global.inc.php";
 $ph = new PostsHandler();
 $user = unserialize($_SESSION['user']);
 $posts = $ph->fetchAllPosts();
+if (!strcmp($_GET['s'], "ml")) {
+	$posts = $ph->fetchlocation($user->state);
+}
 ?>
 
 <!doctype html>
@@ -30,7 +33,11 @@ $posts = $ph->fetchAllPosts();
     <div id="content">
         <br>
         <center>
-            <h1>All Posts</h1>
+            <h1>All Posts</h1> 
+            <body>
+		<a href="allposts.php?s=ap">All Posts</a>
+		<a href="allposts.php?s=ml">My Location</a>
+	    </body>
             <table id="Posts">
                 <?php
                     $len = sizeof($posts);

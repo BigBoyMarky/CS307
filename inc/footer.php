@@ -7,13 +7,6 @@
 ?>
 
 <hr>
-<div id="footer_el">
-    <a href="index.php">Home</a> &nbsp; &nbsp; &nbsp;
-    <a href="">FAQ</a> &nbsp; &nbsp; &nbsp;
-    <a href="">Disclaimer</a> &nbsp; &nbsp; &nbsp;
-    <a href="">Legal</a> &nbsp; &nbsp; &nbsp;
-    <a href="">Support</a>
-</div>
 <br>
 <div id="footer2">
     &copy 2015 Mippsy.com <br>

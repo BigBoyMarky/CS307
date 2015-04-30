@@ -9,9 +9,11 @@ if(!isset($_SESSION['user'])) {
     header("Location: index.php");
 }
 $ph = new PostsHandler();
+$ps = new PetPostsHandler();
 $user = unserialize($_SESSION['user']);
 $uid = $user->id;
 $posts = $ph->fetchUserPost($uid);
+$posts2 = $ps->fetchUserPost($uid);
 ?>
 
 <!doctype html>
@@ -51,6 +53,19 @@ $posts = $ph->fetchUserPost($uid);
                         echo "<td>".$posts[$i]['gender']."<td>";
                         echo "<td>".$posts[$i]['date']."<td>";
                         echo "<td>"."<a href='editpost.php?id=".$posts[$i]['id']."'>"."Edit Post"."</td>";
+                        echo "</tr>";
+                    }
+                ?>
+                <?php
+                    $len = sizeof($posts2);
+                    for ($i = $len - 1; $i >= 0; $i--) {
+                         echo "<tr>";
+                        //echo "<td>".$i."</td>";
+                        echo "<td>"."<a href='petpost.php?id=".$posts2[$i]['id']."'>".$posts2[$i]['petName']." </a>" ."</td>";
+                        echo "<td>".$posts2[$i]['age']."<td>";
+                        echo "<td>".$posts2[$i]['species']."<td>";
+                        echo "<td>".$posts2[$i]['date']."<td>";
+                        echo "<td>"."<a href='editpetpost.php?id=".$posts2[$i]['id']."'>"."Edit Post"."</td>";
                         echo "</tr>";
                     }
                 ?>
